@@ -16,7 +16,7 @@ function alertaCarrito() {
     }).showToast();
 }
 
-function sumaListado() {
+function sumaListado(a) {
 
     const totalCompra = carrito.reduce((acc, el) => acc + el.precio, 0)
     const totalcompraEfect = carritoEfectivo.reduce((acc, el) => acc + el.precio, 0)
@@ -36,12 +36,14 @@ function sumaListado() {
         listadoLocal("productosCompra", JSON.stringify(carrito))
     }
 
-    let carroCompra = document.getElementById("itemsCompra")
-    for (const item of carrito) {
-        let listado = document.createElement("li");
-        listado.innerHTML = item
-        carroCompra.appendChild(listado);
-    }
+    // let carroCompra = document.getElementById("itemsCompra")
+    // for (const item of carrito) {
+    //     let listado = document.createElement("li");
+    //     listado.innerHTML = item
+    //     carroCompra.appendChild(listado);
+    // }
+
+    traerProducto(a)
 
     let total = document.getElementById("totalPrecio")
 
@@ -63,6 +65,25 @@ class primeraInfancia {
     }
 }
 
+const listado = document.getElementById("itemsCompra")
+
+function traerProducto (a) {
+    fetch("./productos.json")
+    .then((res)=>res.json())
+    .then( (data) => {
+
+        data[a].forEach((elemento) => {
+            const li = document.createElement('li')
+            li.innerHTML = `
+                <h4>${elemento.nombre}</h4>
+                <p>${elemento.precio}</p>
+                <hr/>          `
+            listado.append(li)
+        })
+    })
+
+    }
+
 let botonCamion = document.getElementById("btnCamion")
 
 botonCamion.addEventListener("click", () => {
@@ -76,7 +97,7 @@ botonCamion.onclick = () => {
     }
     console.log(carrito)
     console.log(carritoEfectivo)
-    sumaListado()
+    sumaListado(0)
 }
 
 let botonCubo = document.getElementById("btnCubo")

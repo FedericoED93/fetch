@@ -1,0 +1,32 @@
+[
+{
+    "id":1,
+    "nombre":"Camión Didáctico promo",
+    "precio":3200
+},
+{
+    "id":2,
+    "nombre":"Cubo Didáctico",
+    "precio":2800
+},
+{
+    "id":3,
+    "nombre":"Muñeco de Apego promo",
+    "precio":3000
+},
+{
+    "id":4,
+    "nombre":"Pelotero",
+    "precio":3300
+},
+{
+    "id":5,
+    "nombre":"Libro Sensorial",
+    "precio":1800
+},
+{
+    "id":6,
+    "nombre":"Xilofon promo",
+    "precio":3200
+}
+]
